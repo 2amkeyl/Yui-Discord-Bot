@@ -1,0 +1,8 @@
+discord.py
+aiohttp
+python-dotenv
+requests
+Pillow
+gTTS
+PyNaCl
+davey
