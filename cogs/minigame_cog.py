@@ -71,11 +71,11 @@ def calc_mines_multiplier(total: int, mines: int, picks: int) -> float:
         mult *= (total - i) / (safe - i)
     return mult
 
-MINE_HIDDEN_LABEL = "?"
+MINE_HIDDEN_EMOJI = "❔"
 
 class MineCellButton(discord.ui.Button):
     def __init__(self, game: "MinesView", index: int):
-        super().__init__(style=discord.ButtonStyle.secondary, label=MINE_HIDDEN_LABEL)
+        super().__init__(style=discord.ButtonStyle.secondary, emoji=MINE_HIDDEN_EMOJI)
         self.game = game
         self.index = index
 
@@ -183,7 +183,7 @@ class MinesView(discord.ui.LayoutView):
         self.body_text.content = "\n".join([f"### {title}"] + [l for l in lines if l])
         self.container.accent_colour = color
 
-    # ── Lật toàn bộ bàn khi kết thúc (giống hình 2) ──
+    # ── Lật toàn bộ bàn khi kết thúc ──
     def reveal_all(self, exploded_index: int = -1):
         for i, btn in enumerate(self.cell_buttons):
             btn.label = None
