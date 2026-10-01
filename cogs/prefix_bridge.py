@@ -20,6 +20,9 @@ PREFIX = "yui"
 # Viết liền với tên lệnh: `yuihug @ai_do`. Vẫn nhận `yui hug` (có cách) cho đỡ nhầm tay.
 PREFIX_RE = re.compile(rf"^{PREFIX}\s*", re.I)
 
+# Tên gọi tắt khi dùng prefix: `yuicf` = `yuicoinflip`
+PREFIX_ALIASES = {"cf": "coinflip"}
+
 # Các lệnh dựa vào tin nhắn ẩn (ephemeral) để nhập thông tin riêng tư -> để nguyên, chỉ dùng slash.
 SLASH_ONLY = {"quest", "hypesquad", "badge"}
 
@@ -228,6 +231,7 @@ class PrefixBridgeCog(commands.Cog, name="Prefix"):
     def find_command(self, rest: str) -> tuple[Optional[app_commands.Command], str]:
         name, args = _take(rest)
         name = name.lower()
+        name = PREFIX_ALIASES.get(name, name)
         if not name:
             return None, ""
         cmd = self.bot.tree.get_command(name)
