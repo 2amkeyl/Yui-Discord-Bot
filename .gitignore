@@ -1,0 +1,36 @@
+# Bí mật
+.env
+*.env
+valorant.key
+*.key
+proxies.txt
+
+# Dữ liệu người dùng do bot tạo ra
+valorant_accounts.json
+skin_cache/
+yui_db.json
+notify_settings.json
+tts_settings.json
+*.json.tmp
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+*.egg-info/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Log
+*.log
